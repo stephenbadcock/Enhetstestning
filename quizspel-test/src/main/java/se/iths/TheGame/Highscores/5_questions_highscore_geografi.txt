@@ -1,0 +1,5 @@
+Fuskaren,100,32
+eva,94,48
+Oraklet,90,45
+Geniet,80,32
+Chansarn,70,19
