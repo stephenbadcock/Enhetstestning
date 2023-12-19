@@ -8,27 +8,10 @@ public class DieTest {
     public void checkIfDieHasValidValue() {
         try {
             Die die = new Die(6);
+
             die.roll();
 
-            boolean actual = die.getCurrentValue() > 0;
-
-            assertTrue(actual);
-
-        } catch (Exception e) {
-            System.out.println("Fel..");
-        }
-    }
-
-    @Test
-    public void checkIfDieHasInvalidValue() {
-        try {
-            Die die = new Die(6);
-            die.roll();
-
-            boolean actual = die.getCurrentValue() <= 0;
-
-            assertFalse(actual);
-
+            assertTrue(die.getCurrentValue() > 0);
         } catch (Exception e) {
             System.out.println("Fel..");
         }
@@ -39,37 +22,28 @@ public class DieTest {
         try {
             Die die = new Die(6);
             Die die2 = new Die(6);
-
-            assertTrue(die.equals(die2));
-
-        } catch (Exception e) {
-            System.out.println("Fel..");
-        }        
-    }
-
-    @Test
-    public void checkIfObjectsAreNotEqual() {
-        try {
-            Die die = new Die(6);
-            Die die2 = new Die(5);
-
-            assertFalse(die.equals(die2));
-
-        } catch (Exception e) {
-            System.out.println("Fel..");
-        }        
-    }
-    
-    @Test
-    public void checkIfObjectsAreTheSame() {
-        try {
-            Die die = new Die(6);
+            Die die3 = new Die(5);
+            String s = "String";
 
             assertTrue(die.equals(die));
+            assertTrue(die.equals(die2));
+            assertFalse(die.equals(die3));
+            assertFalse(s.equals(die));
 
         } catch (Exception e) {
             System.out.println("Fel..");
         }        
     }
-        
+
+    @Test
+    public void checkThrownException() {
+        try {
+            Die die = new Die(-1);
+
+            die.roll();
+
+        } catch (Exception e) {
+            System.out.println("Fel..");
+        } 
+    }
 }

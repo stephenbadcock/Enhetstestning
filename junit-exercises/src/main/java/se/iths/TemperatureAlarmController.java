@@ -19,24 +19,22 @@ public class TemperatureAlarmController {
 
     public void checkState() {
         if (temperature < 70) {
-            lampColor = "GREEEN";
+            lampColor = "GREEN";
             System.out.println("Everything is fine!");
         }
-        else if (temperature >= 95) {
+        else if (temperature > 95) {
             lampColor = "RED";
             engageAlarm();
             System.out.println("It's burning up in here!");
         }
-        else if (temperature > 70) {
+        else if (temperature >= 70) {
             lampColor = "YELLOW";
             System.out.println("Things are heating up!");
         }
-
     }
 
     public void engageAlarm() {
         alarmOn = true;
-        if (temperature > 100) lampColor = "FLASHING RED";
         System.out.println("ALARM STATUS: ENGAGED!");
     }
 

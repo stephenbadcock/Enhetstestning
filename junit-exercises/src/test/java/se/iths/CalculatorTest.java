@@ -30,27 +30,20 @@ public class CalculatorTest {
     }
 
     @Test
-    public void checkIfIntIsOdd() {
-        Calculator calculator = new Calculator();
-
-        int num = 23;
-
-        boolean expected = false;
-        boolean actual = calculator.isEven(num);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
     public void checkIfIntIsEven() {
         Calculator calculator = new Calculator();
 
-        int num = 12;
+        int evenNo = 12;
+        int oddNo = 23;
 
-        boolean expected = true;
-        boolean actual = calculator.isEven(num);
+        boolean expected1 = true;
+        boolean actual1 = calculator.isEven(evenNo);
 
-        assertEquals(expected, actual);
+        boolean expected2 = false;
+        boolean actual2 = calculator.isEven(oddNo);
+
+        assertEquals(expected1, actual1);
+        assertEquals(expected2, actual2);
     }
 
     @Test
