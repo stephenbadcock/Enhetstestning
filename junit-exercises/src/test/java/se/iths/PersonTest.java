@@ -3,10 +3,18 @@ package se.iths;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PersonTest {
+    Person person;
+
+    @BeforeEach
+    public void setup() {
+        person = new Person("Claes", 42);
+    }
+
     @Test
     public void checkIfAdult() {
-        Person person = new Person("Claes", 42);
         Person person2 = new Person("Måns", 12);
 
         assertTrue(person.isAdult());
@@ -15,9 +23,7 @@ public class PersonTest {
 
     @Test
     public void checkDetailsFormat() {
-        Person person = new Person("Rut", 72);
-
-        String expected = "Rut, 72";
+        String expected = "Claes, 42";
         String actual = person.getDetails();
 
         assertEquals(expected, actual);
@@ -25,10 +31,9 @@ public class PersonTest {
 
     @Test
     public void checkIfAgeIncreasedOnBirthday() {
-        Person person = new Person("Maj", 72);
         person.celebrateBirthday();
 
-        int expected = 73;
+        int expected = 43;
         int actual = person.getAge();
 
         assertEquals(expected, actual);
@@ -36,8 +41,7 @@ public class PersonTest {
 
     @Test
     public void checkIfTwoNamesAreTheSame() {
-        Person person = new Person("Bo", 72);
-        Person person2 = new Person("Bo", 11);
+        Person person2 = new Person("Claes", 11);
         Person person3 = new Person("Milo", 41);
 
         assertTrue(person.hasSameName(person2));
