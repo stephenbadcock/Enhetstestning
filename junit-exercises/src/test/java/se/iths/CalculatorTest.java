@@ -1,61 +1,52 @@
 package se.iths;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
-    @Test
-    public void addTwoInts() {
-        Calculator calculator = new Calculator();
+    Calculator calculator;
 
+    @BeforeEach
+    public void setup() {
+        calculator = new Calculator();
+    }
+
+    @Test
+    public void tenPlusTwentyEqualsThirty() {
         int addend = 10;
         int augend = 20;
 
-        int expected = 30;
-        int actual = calculator.add(addend, augend);
-
-        assertEquals(expected, actual);
+        assertEquals(30, calculator.add(addend, augend));
     }
 
     @Test
-    public void divideTwoInts() {
-        Calculator calculator = new Calculator();
-
+    public void twentyDividedByTenEqualsTwoPointZero() {
         int denominator = 20;
         int nominator = 10;
 
-        double expected = 2.0;
-        double actual = calculator.divide(denominator, nominator);
-
-        assertEquals(expected, actual);
+        assertEquals(2.0, calculator.divide(denominator, nominator));
     }
 
     @Test
-    public void checkIfIntIsEven() {
-        Calculator calculator = new Calculator();
-
+    public void twelveIsEven() {
         int evenNo = 12;
-        int oddNo = 23;
 
-        boolean expected1 = true;
-        boolean actual1 = calculator.isEven(evenNo);
+        assertTrue(calculator.isEven(evenNo));
+    }
 
-        boolean expected2 = false;
-        boolean actual2 = calculator.isEven(oddNo);
+    @Test 
+    public void threeIsOdd() {
+        int oddNo = 3;
 
-        assertEquals(expected1, actual1);
-        assertEquals(expected2, actual2);
+        assertFalse(calculator.isEven(oddNo));
     }
 
     @Test
-    public void getStringLength() {
-        Calculator calculator = new Calculator();
-
+    public void threeCharsPlusTwoCharsEqualsFiveChars() {
         String str1 = "hej";
         String str2 = "hå";
 
-        int expected = 5;
-        int actual = calculator.stringLength(str1, str2);
-
-        assertEquals(expected, actual);
+        assertEquals(5, calculator.stringLength(str1, str2));
     }
 }

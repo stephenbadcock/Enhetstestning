@@ -1,9 +1,8 @@
 package se.iths;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.BeforeEach;
 
 public class TemperatureAlarmControllerTest {
     TemperatureAlarmController controller;
@@ -14,36 +13,31 @@ public class TemperatureAlarmControllerTest {
     }
 
     @Test
-    public void checkTempColour() {
+    public void greenLightWhenTempIs69() {
         controller.setTemperature(69);
         controller.checkState();
-
-        String expected = "GREEN";
-        String actual = controller.lampColor;
         
-        assertEquals(expected, actual);
-
-        controller.setTemperature(96);
-        controller.checkState();
-
-        expected = "RED";
-        actual = controller.lampColor;
-
-        assertEquals(expected, actual);        
-
-        controller.setTemperature(70);
-        controller.checkState();
-
-        expected = "YELLOW";
-        actual = controller.lampColor;
-
-        assertEquals(expected, actual);
-
-
+        assertEquals("GREEN", controller.lampColor);
     }
 
     @Test
-    public void checkIfAlarmIsEngaged() {
+    public void redLightWhenTempIs96() {
+        controller.setTemperature(96);
+        controller.checkState();
+
+        assertEquals("RED", controller.lampColor);        
+    }
+
+    @Test
+    public void yellowLightWhenTempIs70() {
+        controller.setTemperature(70);
+        controller.checkState();
+
+        assertEquals("YELLOW", controller.lampColor);
+    }    
+
+    @Test
+    public void alarmIsEngagedAt96() {
         controller.setTemperature(96);
         controller.checkState();
 

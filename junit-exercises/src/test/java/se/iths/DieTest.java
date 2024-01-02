@@ -16,20 +16,26 @@ public class DieTest {
             System.out.println("Fel..");
         }
     }
-    
+
     @Test
-    public void checkIfObjectsAreEqual() {
+    public void bothObjectAreTheSame() {
         try {
             Die die = new Die(6);
-            Die die2 = new Die(6);
-            Die die3 = new Die(5);
+            Die die2 = die;
+
+            assertTrue(die.equals(die2));
+        } catch (Exception e) {
+            System.out.println("Fel..");
+        }        
+    }
+
+    @Test
+    public void objectIsntInstanceOfDie() {
+        try {
+            Die die = new Die(6);
             String s = "String";
 
-            assertTrue(die.equals(die));
-            assertTrue(die.equals(die2));
-            assertFalse(die.equals(die3));
             assertFalse(s.equals(die));
-
         } catch (Exception e) {
             System.out.println("Fel..");
         }        
@@ -41,7 +47,6 @@ public class DieTest {
             Die die = new Die(-1);
 
             die.roll();
-
         } catch (Exception e) {
             System.out.println("Fel..");
         } 

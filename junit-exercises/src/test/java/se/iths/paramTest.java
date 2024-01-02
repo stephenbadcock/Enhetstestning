@@ -21,9 +21,6 @@ public class paramTest {
     @ParameterizedTest
     @ValueSource(strings = {"kajak", "bob"})
     public void realPalindromeReturnsTrue(String inputString) {
-        boolean actual = isPalindrome(inputString);
-
-        assertTrue(actual);
+        assertTrue(isPalindrome(inputString));
     }
-
 }

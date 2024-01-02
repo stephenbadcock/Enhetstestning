@@ -3,48 +3,56 @@ package se.iths;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
-
 public class PersonTest {
-    Person person;
+    @Test
+    public void personIsAnAdult() {
+        Person person = new Person("Claes", 42);
 
-    @BeforeEach
-    public void setup() {
-        person = new Person("Claes", 42);
+        assertTrue(person.isAdult());
+    }
+    
+    @Test
+    public void personIsntAnAdult() {
+        Person person = new Person("Måns", 12);
+
+        assertFalse(person.isAdult());
+    }     
+
+    @Test
+    public void DetailsFormatAreTheSame() {
+        Person person = new Person("Claes", 42);
+
+        assertEquals("Claes, 42", person.getDetails());
     }
 
     @Test
-    public void checkIfAdult() {
-        Person person2 = new Person("Måns", 12);
+    public void DetailsFormatArentTheSame() {
+        Person person = new Person("Claes", 42);
 
-        assertTrue(person.isAdult());
-        assertFalse(person2.isAdult());
+        assertNotEquals("Claes 42", person.getDetails());
     }    
 
     @Test
-    public void checkDetailsFormat() {
-        String expected = "Claes, 42";
-        String actual = person.getDetails();
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void checkIfAgeIncreasedOnBirthday() {
+    public void ageIncreasedOnBirthday() {
+        Person person = new Person("Claes", 42);
         person.celebrateBirthday();
 
-        int expected = 43;
-        int actual = person.getAge();
-
-        assertEquals(expected, actual);
+        assertEquals(43, person.getAge());
     }
 
     @Test
-    public void checkIfTwoNamesAreTheSame() {
+    public void twoPersonsNamesAreTheSame() {
+        Person person = new Person("Claes", 42);
         Person person2 = new Person("Claes", 11);
-        Person person3 = new Person("Milo", 41);
 
         assertTrue(person.hasSameName(person2));
-        assertFalse(person.hasSameName(person3));
-    }  
+    }
+
+    @Test
+    public void twoPersonsNamesArentTheSame() {
+        Person person = new Person("Claes", 42);
+        Person person2 = new Person("Milo", 41);
+
+        assertFalse(person.hasSameName(person2));
+    }    
 }

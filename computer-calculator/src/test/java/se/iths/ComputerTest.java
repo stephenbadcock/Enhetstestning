@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.mockito.*;
 import static org.mockito.Mockito.*;
 
-public class TestComputer {
-    Computer computer;
+public class ComputerTest {
+    private Computer computer;
 
     @Mock
     private Calculator calculatorMock;
@@ -71,10 +71,8 @@ public class TestComputer {
     public void invalidModeThrowsException() {
         // 1. Create Computer object to use as test object.
         // 2. Assert that an InvalidArgumentException is thrown when the compute()-method is used with invalid mode. (Code Under Test)
-        try {
+        assertThrows(IllegalArgumentException.class, () -> {
             computer.compute("fuckup", 3, 18);
-        } catch (IllegalArgumentException e) {
-            e.getMessage();
-        }
+        });
     }
 }

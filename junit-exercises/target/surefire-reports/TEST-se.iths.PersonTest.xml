@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="se.iths.PersonTest" time="0.028" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="se.iths.PersonTest" time="0.054" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="20"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="SE"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-20\bin"/>
-    <property name="sun.java.command" value="C:\Users\steph\AppData\Local\Temp\surefire17507355277582756691\surefirebooter-20231220151532782_3.jar C:\Users\steph\AppData\Local\Temp\surefire17507355277582756691 2023-12-20T15-15-32_568-jvmRun1 surefire-20231220151532782_1tmp surefire_0-20231220151532782_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\steph\AppData\Local\Temp\surefire2335762632182386328\surefirebooter-20240102134935378_3.jar C:\Users\steph\AppData\Local\Temp\surefire2335762632182386328 2024-01-02T13-49-35_193-jvmRun1 surefire-20240102134935378_1tmp surefire_0-20240102134935378_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="c:\javaLocal\Enhetstestning\junit-exercises\target\test-classes;c:\javaLocal\Enhetstestning\junit-exercises\target\classes;C:\Users\steph\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.1\junit-jupiter-engine-5.9.1.jar;C:\Users\steph\.m2\repository\org\junit\platform\junit-platform-engine\1.9.1\junit-platform-engine-1.9.1.jar;C:\Users\steph\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\steph\.m2\repository\org\junit\platform\junit-platform-commons\1.9.1\junit-platform-commons-1.9.1.jar;C:\Users\steph\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.1\junit-jupiter-api-5.9.1.jar;C:\Users\steph\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\steph\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.1\junit-jupiter-params-5.9.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\steph\AppData\Local\Temp\surefire17507355277582756691\surefirebooter-20231220151532782_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\steph\AppData\Local\Temp\surefire2335762632182386328\surefirebooter-20240102134935378_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="20.0.2+9-78"/>
@@ -58,11 +58,14 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="64.0"/>
   </properties>
-  <testcase name="checkIfAgeIncreasedOnBirthday" classname="se.iths.PersonTest" time="0.0">
-    <system-out><![CDATA[Happy Birthday Maj!
+  <testcase name="twoPersonsNamesAreTheSame" classname="se.iths.PersonTest" time="0.0"/>
+  <testcase name="personIsntAnAdult" classname="se.iths.PersonTest" time="0.008"/>
+  <testcase name="personIsAnAdult" classname="se.iths.PersonTest" time="0.002"/>
+  <testcase name="twoPersonsNamesArentTheSame" classname="se.iths.PersonTest" time="0.0"/>
+  <testcase name="ageIncreasedOnBirthday" classname="se.iths.PersonTest" time="0.005">
+    <system-out><![CDATA[Happy Birthday Claes!
 ]]></system-out>
   </testcase>
-  <testcase name="checkDetailsFormat" classname="se.iths.PersonTest" time="0.006"/>
-  <testcase name="checkIfAdult" classname="se.iths.PersonTest" time="0.002"/>
-  <testcase name="checkIfTwoNamesAreTheSame" classname="se.iths.PersonTest" time="0.002"/>
+  <testcase name="DetailsFormatArentTheSame" classname="se.iths.PersonTest" time="0.002"/>
+  <testcase name="DetailsFormatAreTheSame" classname="se.iths.PersonTest" time="0.014"/>
 </testsuite>

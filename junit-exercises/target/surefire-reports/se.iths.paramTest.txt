@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: se.iths.DieTest
+Test set: se.iths.paramTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s -- in se.iths.DieTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.140 s -- in se.iths.paramTest
