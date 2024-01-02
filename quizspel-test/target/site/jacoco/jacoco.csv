@@ -1,0 +1,16 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+quizspel-test,se.iths.TheGame,GameStart,149,0,12,0,42,0,8,0,2,0
+quizspel-test,se.iths.TheGame,GameSetup,150,19,10,0,30,6,8,4,3,4
+quizspel-test,se.iths.TheGame,Highscore,31,0,0,0,12,0,6,0,6,0
+quizspel-test,se.iths.TheGame,Catagory,0,59,0,6,0,17,0,5,0,2
+quizspel-test,se.iths.TheGame,CorrectAnswer,0,4,0,0,0,2,0,1,0,1
+quizspel-test,se.iths.TheGame,Question,25,0,0,0,10,0,5,0,5,0
+quizspel-test,se.iths.TheGame,Answer,0,9,0,0,0,4,0,2,0,2
+quizspel-test,se.iths.TheGame,SelectQuestion,45,0,4,0,11,0,5,0,3,0
+quizspel-test,se.iths.TheGame,QuestionSwitch,12,0,0,0,5,0,2,0,2,0
+quizspel-test,se.iths.TheGame,HighscoreTable,351,0,12,0,67,0,18,0,12,0
+quizspel-test,se.iths.TheGame,QuizSpelet,11,0,0,0,4,0,3,0,3,0
+quizspel-test,se.iths.TheGame,ScoreCalculation,20,0,4,0,7,0,4,0,2,0
+quizspel-test,se.iths.TheGame,TimerSetup.new TimerTask() {...},8,0,0,0,3,0,2,0,2,0
+quizspel-test,se.iths.TheGame,TimerSetup,220,0,6,0,43,0,8,0,5,0
+quizspel-test,se.iths.TheGame,TimerSetup.new TimerTask() {...},8,0,0,0,3,0,2,0,2,0

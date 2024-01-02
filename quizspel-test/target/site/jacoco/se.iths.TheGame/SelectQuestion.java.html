@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SelectQuestion.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">quizspel-test</a> &gt; <a href="index.source.html" class="el_package">se.iths.TheGame</a> &gt; <span class="el_source">SelectQuestion.java</span></div><h1>SelectQuestion.java</h1><pre class="source lang-java linenums">package se.iths.TheGame;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+<span class="nc" id="L7">public class SelectQuestion {</span>
+
+<span class="nc" id="L9">        private static final Random random = new Random();</span>
+
+
+
+     public static List&lt;Question&gt; selectRandomQuestions(List&lt;Question&gt; allQuestions, int numQuestions) {
+<span class="nc" id="L14">        List&lt;Question&gt; selectedQuestions = new ArrayList&lt;&gt;();</span>
+        
+<span class="nc" id="L16">        int totalQuestions = allQuestions.size();</span>
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (numQuestions &gt; totalQuestions) {</span>
+<span class="nc" id="L18">            numQuestions = totalQuestions;</span>
+        }
+        
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        for (int i = 0; i &lt; numQuestions; i++) {</span>
+<span class="nc" id="L22">            int randomIndex = random.nextInt(allQuestions.size());</span>
+<span class="nc" id="L23">            selectedQuestions.add(allQuestions.get(randomIndex));</span>
+<span class="nc" id="L24">            allQuestions.remove(randomIndex);</span>
+        }
+        
+<span class="nc" id="L27">        return selectedQuestions;</span>
+    }
+
+
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

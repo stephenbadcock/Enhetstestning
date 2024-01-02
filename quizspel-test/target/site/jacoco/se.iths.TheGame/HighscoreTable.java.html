@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HighscoreTable.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">quizspel-test</a> &gt; <a href="index.source.html" class="el_package">se.iths.TheGame</a> &gt; <span class="el_source">HighscoreTable.java</span></div><h1>HighscoreTable.java</h1><pre class="source lang-java linenums">package se.iths.TheGame;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+
+public class HighscoreTable {
+    private int numberOfQuestions;
+    private String categoryName;
+<span class="nc" id="L18">    private List&lt;Highscore&gt; highscoreList = new ArrayList&lt;&gt;();</span>
+    private File HighscoreFile;
+    private String fileName;
+<span class="nc" id="L21">    private final int HIGHSCORE_NAME_CHARACTER_LIMIT = 10;</span>
+
+<span class="nc" id="L23">    public HighscoreTable(int numberOfQuestions, String categoryName) {</span>
+<span class="nc" id="L24">        this.numberOfQuestions = numberOfQuestions;</span>
+<span class="nc" id="L25">        this.categoryName = categoryName;</span>
+<span class="nc" id="L26">    }</span>
+
+    public void setHighscoreFilePath() {
+<span class="nc" id="L29">        String directory = &quot;Enhetstestning/quizspel-test/src/main/java/se/iths/TheGame/Highscores/&quot;;</span>
+<span class="nc" id="L30">        fileName = numberOfQuestions + &quot;_questions_highscore_&quot; + categoryName + &quot;.txt&quot;;</span>
+        
+<span class="nc" id="L32">        HighscoreFile = new File(directory + fileName);</span>
+<span class="nc" id="L33">    }</span>
+
+    public boolean fetchHighscoresFromFile() {
+<span class="nc" id="L36">        boolean fileReadingCompleted = false;</span>
+<span class="nc" id="L37">        BufferedReader fileReader = null;</span>
+
+        try {
+<span class="nc" id="L40">            fileReader = new BufferedReader(new FileReader(HighscoreFile));</span>
+      
+            String fileLine;
+<span class="nc bnc" id="L43" title="All 2 branches missed.">		    while ((fileLine = fileReader.readLine()) != null) {</span>
+<span class="nc" id="L44">                String[] fileLineArray = fileLine.split(&quot;,&quot;, 3);</span>
+
+<span class="nc" id="L46">                Highscore highscore = new Highscore(fileLineArray[0], Integer.parseInt(fileLineArray[1]), Integer.parseInt(fileLineArray[2]));</span>
+<span class="nc" id="L47">                highscoreList.add(highscore);</span>
+		    }
+
+<span class="nc" id="L50">            fileReadingCompleted = true;    </span>
+<span class="nc" id="L51">        } catch (FileNotFoundException e) {</span>
+<span class="nc" id="L52">            System.out.println(&quot;Filen &quot; + fileName + &quot; kunde inte hittas.&quot;);</span>
+<span class="nc" id="L53">        } catch (IOException e) {</span>
+<span class="nc" id="L54">            System.out.println(&quot;Det gick inte att läsa in highscore-listan.&quot;);</span>
+        } finally {
+<span class="nc bnc" id="L56" title="All 2 branches missed.">            if (fileReader != null) {</span>
+                try {
+<span class="nc" id="L58">                    fileReader.close();</span>
+<span class="nc" id="L59">                } catch (IOException e) {</span>
+<span class="nc" id="L60">                    System.out.println(&quot;Läsningen av filen kunde inte avslutas korrekt.&quot;);</span>
+                }
+            }
+        }
+
+<span class="nc" id="L65">        return fileReadingCompleted;</span>
+    }
+
+    public void addCurrentScoreToList(Highscore highscore) {
+<span class="nc" id="L69">        highscoreList.add(highscore);</span>
+<span class="nc" id="L70">    }    </span>
+
+    public Comparator&lt;Highscore&gt; createHighscoreComparator() {
+<span class="nc" id="L73">        return Comparator.comparing(Highscore::getPoints, (int1, int2) -&gt; int2-int1).thenComparing(Highscore::getTime);</span>
+    }
+
+    public void sortHighscoresByPointsThenTime() {
+<span class="nc" id="L77">        Collections.sort(highscoreList, createHighscoreComparator());</span>
+<span class="nc" id="L78">    }</span>
+
+    public Highscore removeWorstHighscoreFromList() {
+<span class="nc" id="L81">        int lastItemIndex = highscoreList.size() - 1;</span>
+
+<span class="nc" id="L83">        Highscore removed = highscoreList.get(lastItemIndex);</span>
+<span class="nc" id="L84">        highscoreList.remove(lastItemIndex);</span>
+
+<span class="nc" id="L86">        return removed;</span>
+    }
+
+    public void congratulateOnHighscore() {
+<span class="nc" id="L90">        System.out.println(&quot;Bra jobbat! Ditt resultat kom in på highscore-listan!&quot;);</span>
+<span class="nc" id="L91">        System.out.println();</span>
+<span class="nc" id="L92">    }</span>
+
+    public String chooseNameForHighscore(Scanner scanner) {
+<span class="nc" id="L95">        System.out.print(&quot;Skriv in ditt namn (max 10 tecken): &quot;);</span>
+<span class="nc" id="L96">        scanner.nextLine();</span>
+<span class="nc" id="L97">        String chosenHighscoreName = scanner.nextLine(); </span>
+<span class="nc" id="L98">        System.out.println();</span>
+
+<span class="nc bnc" id="L100" title="All 2 branches missed.">        if (chosenHighscoreName.length() &gt; HIGHSCORE_NAME_CHARACTER_LIMIT) {</span>
+<span class="nc" id="L101">            chosenHighscoreName = chosenHighscoreName.substring(0, HIGHSCORE_NAME_CHARACTER_LIMIT);</span>
+        }
+
+<span class="nc" id="L104">        return chosenHighscoreName;</span>
+    }
+
+    public void displayHighscoreTable() {
+<span class="nc" id="L108">        System.out.println(&quot;Highscores (&quot; + numberOfQuestions + &quot; frågor, &quot; + categoryName + &quot;)&quot;);</span>
+<span class="nc" id="L109">        System.out.println();</span>
+<span class="nc" id="L110">        System.out.println(String.format(&quot;%7s %13s %3s&quot; , &quot;Namn&quot;, &quot;Poäng&quot;, &quot;Tid&quot;));</span>
+<span class="nc" id="L111">        System.out.println(&quot;---------------------------&quot;);</span>
+
+<span class="nc" id="L113">        int i = 1;</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        for (Highscore highscore : highscoreList) {</span>
+<span class="nc" id="L115">            System.out.println(String.format(i + &quot;. %-12s %-5s %-4s&quot; , highscore.getName(), highscore.getPoints(), highscore.getTime()));</span>
+<span class="nc" id="L116">            i++;</span>
+        }
+
+<span class="nc" id="L119">        System.out.println();</span>
+<span class="nc" id="L120">    }</span>
+
+    public void saveHighscoresToFile() {
+<span class="nc" id="L123">        FileWriter fileWriter = null;</span>
+
+        try {
+<span class="nc" id="L126">            fileWriter = new FileWriter(HighscoreFile, false);</span>
+
+<span class="nc bnc" id="L128" title="All 2 branches missed.">            for (Highscore highscore : highscoreList) {</span>
+<span class="nc" id="L129">                fileWriter.write(highscore.getName() + &quot;,&quot; + highscore.getPoints() + &quot;,&quot; + highscore.getTime() + System.lineSeparator());</span>
+            }
+   
+<span class="nc" id="L132">        } catch (IOException e) { </span>
+<span class="nc" id="L133">            System.out.println(&quot;Det gick inte att spara highscore-listan i &quot; + fileName + &quot;.&quot;);</span>
+        } finally {
+<span class="nc bnc" id="L135" title="All 2 branches missed.">            if (fileWriter != null) {</span>
+                try {
+<span class="nc" id="L137">                    fileWriter.close();</span>
+<span class="nc" id="L138">                } catch (IOException e) {</span>
+<span class="nc" id="L139">                    System.out.println(&quot;Skrivning till fil kunde inte avslutas korrekt.&quot;);</span>
+                }
+            }
+        }
+<span class="nc" id="L143">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
