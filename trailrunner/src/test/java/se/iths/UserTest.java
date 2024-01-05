@@ -1,21 +1,41 @@
 package se.iths;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserTest {
+    User user;
+
+    @BeforeEach
+    public void setup() {
+        user = new User();
+    }
+
     @Test
     public void testSettingUserHeight() {
-        User user = new User();
-
         user.setUserHeight(180);
 
         assertEquals(180, user.getUserHeight());
     }
+
     @Test
-public void testUserweight() {
-  User user = new User();
-  user.setWeight(70);
-assertEquals(70, user.getWeight());
-}
+    public void testUserweight() {
+        user.setWeight(70);
+        assertEquals(70, user.getWeight());
+    }
+
+    @Test
+    public void weightDividedBySquaredHeightEqualsBMI() {
+        user.setUserHeight(180);
+        user.setWeight(70);
+        
+        double userBMI = user.calculateUserBMI();
+
+        assertEquals(21.6, userBMI);
+    }
 }  
+@Test
+public void testSaveRunWithDistance() {
+    Testrun testrun = new Testrun
+    Testrun.setdistance(10);

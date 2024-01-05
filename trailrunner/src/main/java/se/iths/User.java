@@ -19,4 +19,13 @@ public class User {
     public double getWeight() {
         return weight;
     }
+
+    public double calculateUserBMI() {
+        double heightInMeters = height / 100;
+
+        double userBMI = weight / (heightInMeters * heightInMeters);
+        double userBMIWithOneDecimal = Math.round(userBMI * 10.0) / 10.0;
+
+        return userBMIWithOneDecimal;
+    }
 }
