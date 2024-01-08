@@ -1,5 +1,6 @@
 package se.iths;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,7 +36,3 @@ public class UserTest {
         assertEquals(21.6, userBMI);
     }
 }  
-@Test
-public void testSaveRunWithDistance() {
-    Testrun testrun = new Testrun
-    Testrun.setdistance(10);

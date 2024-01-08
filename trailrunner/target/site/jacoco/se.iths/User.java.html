@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">trailrunner</a> &gt; <a href="index.source.html" class="el_package">se.iths</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package se.iths;
-
-import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 <span class="fc" id="L5">public class User {</span>
     private double height;
@@ -26,9 +26,21 @@ import java.text.DecimalFormat;
 <span class="fc" id="L26">        double heightInMeters = height / 100;</span>
 
 <span class="fc" id="L28">        double userBMI = weight / (heightInMeters * heightInMeters);</span>
-<span class="fc" id="L29">        double userBMIRounded = Math.round(userBMI * 10.0) / 10.0;</span>
+<span class="fc" id="L29">        double userBMIWithOneDecimal = Math.round(userBMI * 10.0) / 10.0;</span>
 
-<span class="fc" id="L31">        return userBMIRounded;</span>
+<span class="fc" id="L31">        return userBMIWithOneDecimal;</span>
     }
+    //  public void saveRun(double distance, int hours, int minutes, int seconds, String date, String runId) throws Exception {
+    //   if (distance &lt;= 0 || (hours == 0 &amp;&amp; minutes == 0 &amp;&amp; seconds == 0)) {
+    //      throw new Exception(&quot;Invalid distance or time&quot;);
+    //   }
+
+    //   if (date == null || date.isEmpty()) {
+    //      date = LocalDate.now().format(DateTimeFormatter.ISO_DATE);
+    //   }
+
+    //   double totalMinutes = hours * 60 + minutes + seconds / 60.0;
+    //   double averageSpeed = distance / (totalMinutes / 60.0);
+    //   double kilometerTime = totalMinutes / distance;
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
