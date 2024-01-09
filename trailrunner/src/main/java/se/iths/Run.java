@@ -1,5 +1,7 @@
 package se.iths;
 
+import java.time.LocalDate;
+
 // import java.util.ArrayList;
 // import java.util.List;
 
@@ -8,14 +10,34 @@ public class Run {
     private int hours;
     private int minutes;
     private int seconds;
-    private String date;
+    private LocalDate date;
 
-    public Run(double distanceInKm, int hours, int minutes, int seconds, String date) {
+    public Run(double distanceInKm, int hours, int minutes, int seconds, LocalDate date) {
         this.distanceInKm = distanceInKm;
         this.hours = hours;
         this.minutes = minutes;
         this.seconds = seconds;
         this.date = date;
+    }
+
+    public double getDistanceInKm() {
+        return distanceInKm;
+    }
+
+    public LocalDate getRunDate() {
+        return date;
+    }
+    
+    public int getHours() {
+        return hours;
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public int getSeconds() {
+        return seconds;
     }
 
     public double calculateRunSpeed() {
@@ -30,7 +52,7 @@ public class Run {
     public String calculateKilometerTime() {
         double runTimeInMinutes = (hours * 60) + minutes + (seconds / 60.0);
 
-        double kilometerTime = runTimeInMinutes / distanceInKm ;
+        double kilometerTime = runTimeInMinutes / distanceInKm;
         double kilometerTimeRounded = Math.round(kilometerTime * 100.0) / 100.0;
 
         String kilometerTimeString = Double.toString(kilometerTimeRounded);

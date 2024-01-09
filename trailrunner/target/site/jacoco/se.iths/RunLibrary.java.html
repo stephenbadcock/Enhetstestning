@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RunLibrary.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">trailrunner</a> &gt; <a href="index.source.html" class="el_package">se.iths</a> &gt; <span class="el_source">RunLibrary.java</span></div><h1>RunLibrary.java</h1><pre class="source lang-java linenums">package se.iths;
+
+// import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
+
+<span class="fc" id="L7">public class RunLibrary {</span>
+<span class="fc" id="L8">    Map&lt;Integer, Run&gt; runMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L9">    private int runID = 1;</span>
+
+    public void saveRun(Run run) {
+<span class="fc" id="L12">        runMap.put(runID, run);</span>
+
+<span class="fc" id="L14">        runID = runMap.size() + 1;</span>
+<span class="fc" id="L15">    }</span>
+
+    public double calculateTotalRunDistance() {
+<span class="fc" id="L18">        double totalDistance = 0.0;</span>
+
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        for (Run run : runMap.values()) {</span>
+<span class="fc" id="L21">            totalDistance += run.getDistanceInKm();</span>
+        }
+
+<span class="fc" id="L24">        double totalDistanceRounded = Math.round(totalDistance * 100.0) / 100.0;</span>
+
+<span class="fc" id="L26">        return totalDistanceRounded; </span>
+    }
+
+    public double calculateAverageRunDistance() {
+<span class="fc" id="L30">        double totalDistance = 0.0;</span>
+    
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (Run run : runMap.values()) {</span>
+<span class="fc" id="L33">            totalDistance += run.getDistanceInKm(); </span>
+        }
+
+<span class="fc" id="L36">        double averageDistance = totalDistance / runMap.size();</span>
+<span class="fc" id="L37">        double averageDistanceRounded = Math.round(averageDistance * 100.0) / 100.0;</span>
+
+<span class="fc" id="L39">        return averageDistanceRounded;</span>
+    }
+
+    public String fetchRunDetails(int runID) {
+<span class="fc" id="L43">        Run run = runMap.get(runID);</span>
+
+<span class="fc" id="L45">        String runDetails = &quot;Löprunda &quot; + runID + System.lineSeparator();</span>
+<span class="fc" id="L46">        runDetails += &quot;-----------&quot; + System.lineSeparator();</span>
+<span class="fc" id="L47">        runDetails += &quot;Datum: &quot; + run.getRunDate() + System.lineSeparator();</span>
+<span class="fc" id="L48">        runDetails += &quot;Distans: &quot; + run.getDistanceInKm() + &quot; km&quot; + System.lineSeparator();</span>
+<span class="fc" id="L49">        runDetails += &quot;Tid: &quot; + run.getHours() + &quot;:&quot; + run.getMinutes() + &quot;:&quot; + run.getSeconds() + System.lineSeparator();</span>
+<span class="fc" id="L50">        runDetails += &quot;Medelhastighet: &quot; + run.calculateRunSpeed() + &quot; km/h&quot; + System.lineSeparator();</span>
+<span class="fc" id="L51">        runDetails += &quot;Kilometer-tid: &quot; + run.calculateKilometerTime() + &quot;/km&quot; + System.lineSeparator();</span>
+
+<span class="fc" id="L53">        return runDetails;</span>
+    }
+
+    public String deleteRun(int runID) {
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (runMap.containsKey(runID)) {</span>
+<span class="fc" id="L58">            runMap.remove(runID);</span>
+
+<span class="fc" id="L60">            return &quot;Löprunda &quot; + runID + &quot; har raderats.&quot;;</span>
+        } else {
+<span class="fc" id="L62">            return &quot;Löprunda &quot; + runID + &quot; kan inte hittas.&quot;;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
