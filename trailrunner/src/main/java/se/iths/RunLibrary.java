@@ -26,6 +26,17 @@ public class RunLibrary {
         return totalDistanceRounded; 
     }
 
+    public boolean printTotalDistanceRun() {
+        boolean methodFinished = false;
+
+        System.out.println("Den totala distansen för dina sparade löprundor är: " + calculateAverageRunDistance());
+        System.out.println();
+
+        methodFinished = true;
+
+        return methodFinished;
+    }    
+
     public double calculateAverageRunDistance() {
         double totalDistance = 0.0;
     
@@ -39,6 +50,17 @@ public class RunLibrary {
         return averageDistanceRounded;
     }
 
+    public boolean printAverageRunDistance() {
+        boolean methodFinished = false;
+
+        System.out.println("Den genomsnittliga distansen för dina sparade löprundor är: " + calculateAverageRunDistance());
+        System.out.println();
+
+        methodFinished = true;
+
+        return methodFinished;
+    } 
+
     public String fetchRunDetails(int runID) {
         Run run = runMap.get(runID);
 
@@ -49,7 +71,6 @@ public class RunLibrary {
         runDetails += "Tid: " + run.getHours() + ":" + run.getMinutes() + ":" + run.getSeconds() + System.lineSeparator();
         runDetails += "Medelhastighet: " + run.calculateRunSpeed() + " km/h" + System.lineSeparator();
         runDetails += "Kilometer-tid: " + run.calculateKilometerTime() + "/km" + System.lineSeparator();
-
         return runDetails;
     }
 

@@ -19,47 +19,68 @@ import java.util.Map;
 
 <span class="fc bfc" id="L20" title="All 2 branches covered.">        for (Run run : runMap.values()) {</span>
 <span class="fc" id="L21">            totalDistance += run.getDistanceInKm();</span>
-        }
+<span class="fc" id="L22">        }</span>
 
 <span class="fc" id="L24">        double totalDistanceRounded = Math.round(totalDistance * 100.0) / 100.0;</span>
 
 <span class="fc" id="L26">        return totalDistanceRounded; </span>
     }
 
+    public boolean printTotalDistanceRun() {
+<span class="fc" id="L30">        boolean methodFinished = false;</span>
+
+<span class="fc" id="L32">        System.out.println(&quot;Den totala distansen för dina sparade löprundor är: &quot; + calculateAverageRunDistance());</span>
+<span class="fc" id="L33">        System.out.println();</span>
+
+<span class="fc" id="L35">        methodFinished = true;</span>
+
+<span class="fc" id="L37">        return methodFinished;</span>
+    }    
+
     public double calculateAverageRunDistance() {
-<span class="fc" id="L30">        double totalDistance = 0.0;</span>
+<span class="fc" id="L41">        double totalDistance = 0.0;</span>
     
-<span class="fc bfc" id="L32" title="All 2 branches covered.">        for (Run run : runMap.values()) {</span>
-<span class="fc" id="L33">            totalDistance += run.getDistanceInKm(); </span>
-        }
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Run run : runMap.values()) {</span>
+<span class="fc" id="L44">            totalDistance += run.getDistanceInKm(); </span>
+<span class="fc" id="L45">        }</span>
 
-<span class="fc" id="L36">        double averageDistance = totalDistance / runMap.size();</span>
-<span class="fc" id="L37">        double averageDistanceRounded = Math.round(averageDistance * 100.0) / 100.0;</span>
+<span class="fc" id="L47">        double averageDistance = totalDistance / runMap.size();</span>
+<span class="fc" id="L48">        double averageDistanceRounded = Math.round(averageDistance * 100.0) / 100.0;</span>
 
-<span class="fc" id="L39">        return averageDistanceRounded;</span>
+<span class="fc" id="L50">        return averageDistanceRounded;</span>
     }
 
+    public boolean printAverageRunDistance() {
+<span class="fc" id="L54">        boolean methodFinished = false;</span>
+
+<span class="fc" id="L56">        System.out.println(&quot;Den genomsnittliga distansen för dina sparade löprundor är: &quot; + calculateAverageRunDistance());</span>
+<span class="fc" id="L57">        System.out.println();</span>
+
+<span class="fc" id="L59">        methodFinished = true;</span>
+
+<span class="fc" id="L61">        return methodFinished;</span>
+    } 
+
     public String fetchRunDetails(int runID) {
-<span class="fc" id="L43">        Run run = runMap.get(runID);</span>
+<span class="fc" id="L65">        Run run = runMap.get(runID);</span>
 
-<span class="fc" id="L45">        String runDetails = &quot;Löprunda &quot; + runID + System.lineSeparator();</span>
-<span class="fc" id="L46">        runDetails += &quot;-----------&quot; + System.lineSeparator();</span>
-<span class="fc" id="L47">        runDetails += &quot;Datum: &quot; + run.getRunDate() + System.lineSeparator();</span>
-<span class="fc" id="L48">        runDetails += &quot;Distans: &quot; + run.getDistanceInKm() + &quot; km&quot; + System.lineSeparator();</span>
-<span class="fc" id="L49">        runDetails += &quot;Tid: &quot; + run.getHours() + &quot;:&quot; + run.getMinutes() + &quot;:&quot; + run.getSeconds() + System.lineSeparator();</span>
-<span class="fc" id="L50">        runDetails += &quot;Medelhastighet: &quot; + run.calculateRunSpeed() + &quot; km/h&quot; + System.lineSeparator();</span>
-<span class="fc" id="L51">        runDetails += &quot;Kilometer-tid: &quot; + run.calculateKilometerTime() + &quot;/km&quot; + System.lineSeparator();</span>
-
-<span class="fc" id="L53">        return runDetails;</span>
+<span class="fc" id="L67">        String runDetails = &quot;Löprunda &quot; + runID + System.lineSeparator();</span>
+<span class="fc" id="L68">        runDetails += &quot;-----------&quot; + System.lineSeparator();</span>
+<span class="fc" id="L69">        runDetails += &quot;Datum: &quot; + run.getRunDate() + System.lineSeparator();</span>
+<span class="fc" id="L70">        runDetails += &quot;Distans: &quot; + run.getDistanceInKm() + &quot; km&quot; + System.lineSeparator();</span>
+<span class="fc" id="L71">        runDetails += &quot;Tid: &quot; + run.getHours() + &quot;:&quot; + run.getMinutes() + &quot;:&quot; + run.getSeconds() + System.lineSeparator();</span>
+<span class="fc" id="L72">        runDetails += &quot;Medelhastighet: &quot; + run.calculateRunSpeed() + &quot; km/h&quot; + System.lineSeparator();</span>
+<span class="fc" id="L73">        runDetails += &quot;Kilometer-tid: &quot; + run.calculateKilometerTime() + &quot;/km&quot; + System.lineSeparator();</span>
+<span class="fc" id="L74">        return runDetails;</span>
     }
 
     public String deleteRun(int runID) {
-<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (runMap.containsKey(runID)) {</span>
-<span class="fc" id="L58">            runMap.remove(runID);</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">        if (runMap.containsKey(runID)) {</span>
+<span class="fc" id="L79">            runMap.remove(runID);</span>
 
-<span class="fc" id="L60">            return &quot;Löprunda &quot; + runID + &quot; har raderats.&quot;;</span>
+<span class="fc" id="L81">            return &quot;Löprunda &quot; + runID + &quot; har raderats.&quot;;</span>
         } else {
-<span class="fc" id="L62">            return &quot;Löprunda &quot; + runID + &quot; kan inte hittas.&quot;;</span>
+<span class="fc" id="L83">            return &quot;Löprunda &quot; + runID + &quot; kan inte hittas.&quot;;</span>
         }
     }
 }
