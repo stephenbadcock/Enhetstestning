@@ -3,9 +3,12 @@ package se.iths;
 // import java.util.Map;
 import java.time.LocalDate;
 // import java.util.HashMap;
+import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.BeforeEach;
 
@@ -95,7 +98,8 @@ public class RunLibraryTest {
         runLibrary.saveRun(runOne);
         runLibrary.saveRun(runTwo);
 
-        MainMenu mainMenu = new MainMenu();
+        Scanner scanner = new Scanner(System.in);
+        MainMenu mainMenu = new MainMenu(scanner);
 
         mainMenu.processOption(3);
 
@@ -110,10 +114,33 @@ public class RunLibraryTest {
         runLibrary.saveRun(runOne);
         runLibrary.saveRun(runTwo);
 
-        MainMenu mainMenu = new MainMenu();
+        Scanner scanner = new Scanner(System.in);
+        MainMenu mainMenu = new MainMenu(scanner);
 
         mainMenu.processOption(4);
 
         assertTrue(runLibrary.printAverageRunDistance());
-    }    
+    }
+    
+    // @Test
+    // public void whenUserPutsInSixASixIsReturned() {
+        // MainMenu mainMenuMock = mock(MainMenu.class);
+        // RunLibrary runLibraryMock = mock(RunLibrary.class);
+
+        // LocalDate runDate = LocalDate.of(2024, 1, 2);
+        // Run runOne = new Run(4.0, 0, 14, 30, runDate);
+        // runLibrary.saveRun(runOne);
+        
+        // when(mainMenuMock.getUserOption()).thenReturn(6);
+        // mainMenuMock.getUserOption();
+        
+        // when(runLibraryMock.chooseRunToDelete()).thenReturn(1);
+        // int runID = runLibrary.chooseRunToDelete();
+
+        // runLibrary.deleteRun(runID);
+
+        // assertEquals("Löprunda 1 har raderats.", runLibrary.deleteRun(runID));
+    // }
+    
+    // whenUserPutsInOneRunOneGetsDeleted
 }

@@ -29,7 +29,7 @@ public class RunLibrary {
     public boolean printTotalDistanceRun() {
         boolean methodFinished = false;
 
-        System.out.println("Den totala distansen för dina sparade löprundor är: " + calculateAverageRunDistance());
+        System.out.println("Den totala distansen för dina sparade löprundor är: " + calculateTotalRunDistance() + " km.");
         System.out.println();
 
         methodFinished = true;
@@ -53,7 +53,7 @@ public class RunLibrary {
     public boolean printAverageRunDistance() {
         boolean methodFinished = false;
 
-        System.out.println("Den genomsnittliga distansen för dina sparade löprundor är: " + calculateAverageRunDistance());
+        System.out.println("Den genomsnittliga distansen för dina sparade löprundor är: " + calculateAverageRunDistance() + " km.");
         System.out.println();
 
         methodFinished = true;
