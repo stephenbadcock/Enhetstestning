@@ -51,21 +51,25 @@ public class MainMenu {
         switch(menuOption) {
             case 2 :
                 handleUserBMI();
+                showMainMenu();
                 break;
             case 3 :
                 runLibrary.printTotalDistanceRun();
                 showMainMenu();
                 break;
-            case 4 :runLibrary
-                .printAverageRunDistance();
+            case 4 :
+                runLibrary.printAverageRunDistance();
                 showMainMenu();
                 break;
             // case 5 :
             //     runLibrary.
             case 6 :
                 handleRunDeletion();
+                showMainMenu();
                 break;                
             default :
+                System.out.println("Vänligen skriv in en siffra mellan 1 och 7.");
+                System.out.println();
                 showMainMenu();
                 break;     
         }
@@ -122,6 +126,27 @@ public class MainMenu {
 
         user.setUserHeight(saveEnteredHeight());
         user.setWeight(saveEnteredWeight());
+        double userBMI = user.calculateUserBMI();
+
+        System.out.println("Din BMI är " + userBMI);
+    }
+
+    public double saveEnteredDistance() {
+        System.out.print("Ange löprundans distans: ");
+        double distance = scanner.nextDouble();
+        scanner.nextLine();
+        System.out.println();
+
+        return distance;
+    }
+
+    public String saveEnteredTime() {
+        System.out.print("Ange löprundans tid (H:M:S): ");
+        String time = scanner.nextLine();
+        scanner.nextLine();
+        System.out.println();        
+
+        return time;
     }
     // public void printRunDetails() {
 

@@ -51,77 +51,103 @@ public class MainMenu {
 <span class="pc bpc" id="L51" title="3 of 5 branches missed.">        switch(menuOption) {</span>
             case 2 :
 <span class="nc" id="L53">                handleUserBMI();</span>
-<span class="nc" id="L54">                break;</span>
+<span class="nc" id="L54">                showMainMenu();</span>
+<span class="nc" id="L55">                break;</span>
             case 3 :
-<span class="fc" id="L56">                runLibrary.printTotalDistanceRun();</span>
-<span class="fc" id="L57">                showMainMenu();</span>
-<span class="fc" id="L58">                break;</span>
-<span class="fc" id="L59">            case 4 :runLibrary</span>
-<span class="fc" id="L60">                .printAverageRunDistance();</span>
-<span class="fc" id="L61">                showMainMenu();</span>
-<span class="fc" id="L62">                break;</span>
+<span class="fc" id="L57">                runLibrary.printTotalDistanceRun();</span>
+<span class="fc" id="L58">                showMainMenu();</span>
+<span class="fc" id="L59">                break;</span>
+            case 4 :
+<span class="fc" id="L61">                runLibrary.printAverageRunDistance();</span>
+<span class="fc" id="L62">                showMainMenu();</span>
+<span class="fc" id="L63">                break;</span>
             // case 5 :
             //     runLibrary.
             case 6 :
-<span class="nc" id="L66">                handleRunDeletion();</span>
-<span class="nc" id="L67">                break;                </span>
+<span class="nc" id="L67">                handleRunDeletion();</span>
+<span class="nc" id="L68">                showMainMenu();</span>
+<span class="nc" id="L69">                break;                </span>
             default :
-<span class="nc" id="L69">                showMainMenu();</span>
+<span class="nc" id="L71">                System.out.println(&quot;Vänligen skriv in en siffra mellan 1 och 7.&quot;);</span>
+<span class="nc" id="L72">                System.out.println();</span>
+<span class="nc" id="L73">                showMainMenu();</span>
                 break;     
         }
-<span class="fc" id="L72">    }</span>
+<span class="fc" id="L76">    }</span>
 
     public int chooseRunToDelete() {
-<span class="fc" id="L75">        System.out.print(&quot;Ange ID-numret på den löprundan du vill radera från historiken: &quot;);</span>
-<span class="fc" id="L76">        int runID = scanner.nextInt();</span>
-<span class="fc" id="L77">        scanner.nextLine();</span>
-<span class="fc" id="L78">        System.out.println();</span>
+<span class="fc" id="L79">        System.out.print(&quot;Ange ID-numret på den löprundan du vill radera från historiken: &quot;);</span>
+<span class="fc" id="L80">        int runID = scanner.nextInt();</span>
+<span class="fc" id="L81">        scanner.nextLine();</span>
+<span class="fc" id="L82">        System.out.println();</span>
 
-<span class="fc" id="L80">        return runID;</span>
+<span class="fc" id="L84">        return runID;</span>
     }
 
     public void handleRunDeletion() {
         // int runID = chooseRunToDelete();
         // System.out.println(runLibrary.deleteRun(runID));
         // showMainMenu();
-<span class="nc" id="L87">    }</span>
+<span class="nc" id="L91">    }</span>
 
     // public void handleRunDetailPrinting() {
 
     // }
     
     public int chooseRunToViewDetailsFor() {
-<span class="fc" id="L94">        System.out.print(&quot;Ange ID-numret på den löprundan du vill se detaljer för: &quot;);</span>
-<span class="fc" id="L95">        int runID = scanner.nextInt();</span>
-<span class="fc" id="L96">        scanner.nextLine();</span>
-<span class="fc" id="L97">        System.out.println();</span>
+<span class="fc" id="L98">        System.out.print(&quot;Ange ID-numret på den löprundan du vill se detaljer för: &quot;);</span>
+<span class="fc" id="L99">        int runID = scanner.nextInt();</span>
+<span class="fc" id="L100">        scanner.nextLine();</span>
+<span class="fc" id="L101">        System.out.println();</span>
 
-<span class="fc" id="L99">        return runID;</span>
+<span class="fc" id="L103">        return runID;</span>
     }
 
     public int saveEnteredHeight() {
-<span class="fc" id="L103">        System.out.print(&quot;Ange din längd (cm): &quot;);</span>
-<span class="fc" id="L104">        int height = scanner.nextInt();</span>
-<span class="fc" id="L105">        scanner.nextLine();</span>
-<span class="fc" id="L106">        System.out.println();</span>
+<span class="fc" id="L107">        System.out.print(&quot;Ange din längd (cm): &quot;);</span>
+<span class="fc" id="L108">        int height = scanner.nextInt();</span>
+<span class="fc" id="L109">        scanner.nextLine();</span>
+<span class="fc" id="L110">        System.out.println();</span>
 
-<span class="fc" id="L108">        return height;</span>
+<span class="fc" id="L112">        return height;</span>
     }
 
     public double saveEnteredWeight() {
-<span class="fc" id="L112">        System.out.print(&quot;Ange din vikt (kg): &quot;);</span>
-<span class="fc" id="L113">        double weight = scanner.nextDouble();</span>
-<span class="fc" id="L114">        scanner.nextLine();</span>
-<span class="fc" id="L115">        System.out.println();</span>
+<span class="fc" id="L116">        System.out.print(&quot;Ange din vikt (kg): &quot;);</span>
+<span class="fc" id="L117">        double weight = scanner.nextDouble();</span>
+<span class="fc" id="L118">        scanner.nextLine();</span>
+<span class="fc" id="L119">        System.out.println();</span>
 
-<span class="fc" id="L117">        return weight;</span>
+<span class="fc" id="L121">        return weight;</span>
     }
 
     public void handleUserBMI() {
-<span class="nc" id="L121">        User user = new User();</span>
+<span class="nc" id="L125">        User user = new User();</span>
 
-<span class="nc" id="L123">        user.setUserHeight(saveEnteredHeight());</span>
-<span class="nc" id="L124">    }</span>
+<span class="nc" id="L127">        user.setUserHeight(saveEnteredHeight());</span>
+<span class="nc" id="L128">        user.setWeight(saveEnteredWeight());</span>
+<span class="nc" id="L129">        double userBMI = user.calculateUserBMI();</span>
+
+<span class="nc" id="L131">        System.out.println(&quot;Din BMI är &quot; + userBMI);</span>
+<span class="nc" id="L132">    }</span>
+
+    public double saveEnteredDistance() {
+<span class="fc" id="L135">        System.out.print(&quot;Ange löprundans distans: &quot;);</span>
+<span class="fc" id="L136">        double distance = scanner.nextDouble();</span>
+<span class="fc" id="L137">        scanner.nextLine();</span>
+<span class="fc" id="L138">        System.out.println();</span>
+
+<span class="fc" id="L140">        return distance;</span>
+    }
+
+    public String saveEnteredTime() {
+<span class="fc" id="L144">        System.out.print(&quot;Ange löprundans tid (H:M:S): &quot;);</span>
+<span class="fc" id="L145">        String time = scanner.nextLine();</span>
+<span class="fc" id="L146">        scanner.nextLine();</span>
+<span class="fc" id="L147">        System.out.println();        </span>
+
+<span class="fc" id="L149">        return time;</span>
+    }
     // public void printRunDetails() {
 
     // }

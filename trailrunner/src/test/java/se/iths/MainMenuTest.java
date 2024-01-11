@@ -160,7 +160,52 @@ public class MainMenuTest {
         assertEquals(60.0, user.getWeight());
 
         verify(mockScanner).nextDouble();
-    }    
+    }
+    
+    @Test
+    public void enteredHeight180AndWeight60ReturnsBMIEighteenPointFive() {
+        Scanner mockScanner = mock(Scanner.class);
+
+        when(mockScanner.nextInt()).thenReturn(180);
+        when(mockScanner.nextDouble()).thenReturn(60.0);
+
+        MainMenu mainMenu = new MainMenu(mockScanner);
+
+        User user = new User();
+        user.setUserHeight(mainMenu.saveEnteredHeight());
+        user.setWeight(mainMenu.saveEnteredWeight());
+
+        assertEquals(18.5, user.calculateUserBMI());
+
+        verify(mockScanner).nextInt();
+        verify(mockScanner).nextDouble();
+    }
+    
+    @Test
+    public void enteredWeightIsReturnedByMethod() {
+        Scanner mockScanner = mock(Scanner.class);
+
+        when(mockScanner.nextDouble()).thenReturn(5.5);
+
+        MainMenu mainMenu = new MainMenu(mockScanner);
+
+        assertEquals(5.5, mainMenu.saveEnteredDistance());
+
+        verify(mockScanner).nextDouble();
+    }
+    
+    @Test
+    public void enteredTimeIsReturnedByMethod() {
+        Scanner mockScanner = mock(Scanner.class);
+
+        when(mockScanner.nextLine()).thenReturn("0:12:30");
+
+        MainMenu mainMenu = new MainMenu(mockScanner);
+
+        assertEquals("0:12:30", mainMenu.saveEnteredTime());
+
+        verify(mockScanner, times(2)).nextLine();
+    }     
 
 
 //    @Test
