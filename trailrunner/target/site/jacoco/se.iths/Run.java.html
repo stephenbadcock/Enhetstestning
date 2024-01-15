@@ -2,9 +2,6 @@
 
 import java.time.LocalDate;
 
-// import java.util.ArrayList;
-// import java.util.List;
-
 public class Run {
     private double distanceInKm;
     private int hours;
@@ -12,59 +9,53 @@ public class Run {
     private int seconds;
     private LocalDate date;
 
-<span class="fc" id="L15">    public Run(double distanceInKm, int hours, int minutes, int seconds, LocalDate date) {</span>
-<span class="fc" id="L16">        this.distanceInKm = distanceInKm;</span>
-<span class="fc" id="L17">        this.hours = hours;</span>
-<span class="fc" id="L18">        this.minutes = minutes;</span>
-<span class="fc" id="L19">        this.seconds = seconds;</span>
-<span class="fc" id="L20">        this.date = date;</span>
-<span class="fc" id="L21">    }</span>
+<span class="fc" id="L12">    public Run(double distanceInKm, int hours, int minutes, int seconds, LocalDate date) {</span>
+<span class="fc" id="L13">        this.distanceInKm = distanceInKm;</span>
+<span class="fc" id="L14">        this.hours = hours;</span>
+<span class="fc" id="L15">        this.minutes = minutes;</span>
+<span class="fc" id="L16">        this.seconds = seconds;</span>
+<span class="fc" id="L17">        this.date = date;</span>
+<span class="fc" id="L18">    }</span>
 
     public double getDistanceInKm() {
-<span class="fc" id="L24">        return distanceInKm;</span>
+<span class="fc" id="L21">        return distanceInKm;</span>
     }
 
     public LocalDate getRunDate() {
-<span class="fc" id="L28">        return date;</span>
+<span class="fc" id="L25">        return date;</span>
     }
     
     public int getHours() {
-<span class="fc" id="L32">        return hours;</span>
+<span class="fc" id="L29">        return hours;</span>
     }
 
     public int getMinutes() {
-<span class="fc" id="L36">        return minutes;</span>
+<span class="fc" id="L33">        return minutes;</span>
     }
 
     public int getSeconds() {
-<span class="fc" id="L40">        return seconds;</span>
+<span class="fc" id="L37">        return seconds;</span>
     }
 
     public double calculateRunSpeed() {
-<span class="fc" id="L44">        double runTimeInHours = hours + (minutes / 60.0) + (seconds / 3600.0);</span>
+<span class="fc" id="L41">        double runTimeInHours = hours + (minutes / 60.0) + (seconds / 3600.0);</span>
 
-<span class="fc" id="L46">        double speed = distanceInKm / runTimeInHours;</span>
-<span class="fc" id="L47">        double speedRoundedToOneDecimal = Math.round(speed * 10.0) / 10.0;</span>
+<span class="fc" id="L43">        double speed = distanceInKm / runTimeInHours;</span>
+<span class="fc" id="L44">        double speedRoundedToOneDecimal = Math.round(speed * 10.0) / 10.0;</span>
 
-<span class="fc" id="L49">        return speedRoundedToOneDecimal;</span>
+<span class="fc" id="L46">        return speedRoundedToOneDecimal;</span>
     }
 
     public String calculateKilometerTime() {
-<span class="fc" id="L53">        double runTimeInMinutes = (hours * 60) + minutes + (seconds / 60.0);</span>
+<span class="fc" id="L50">        double runTimeInMinutes = (hours * 60) + minutes + (seconds / 60.0);</span>
 
-<span class="fc" id="L55">        double kilometerTime = runTimeInMinutes / distanceInKm;</span>
-<span class="fc" id="L56">        double kilometerTimeRounded = Math.round(kilometerTime * 100.0) / 100.0;</span>
+<span class="fc" id="L52">        double kilometerTime = runTimeInMinutes / distanceInKm;</span>
+<span class="fc" id="L53">        double kilometerTimeRounded = Math.round(kilometerTime * 100.0) / 100.0;</span>
 
-<span class="fc" id="L58">        String kilometerTimeString = Double.toString(kilometerTimeRounded);</span>
-<span class="fc" id="L59">        kilometerTimeString = kilometerTimeString.replace(&quot;.&quot;, &quot;:&quot;);</span>
+<span class="fc" id="L55">        String kilometerTimeString = Double.toString(kilometerTimeRounded);</span>
+<span class="fc" id="L56">        kilometerTimeString = kilometerTimeString.replace(&quot;.&quot;, &quot;:&quot;);</span>
 
-<span class="fc" id="L61">        return kilometerTimeString;</span>
+<span class="fc" id="L58">        return kilometerTimeString;</span>
     }
-
-    // public List&lt;Object&gt; getRunDataInput() {
-    //     List&lt;Object&gt; runDataList = new ArrayList&lt;&gt;();
-
-    //     return runDataList;
-    // }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

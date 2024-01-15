@@ -2,11 +2,8 @@ package se.iths;
 
 import java.time.LocalDate;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-
-// import org.mockito.*;
-// import static org.mockito.Mockito.*;
 
 public class RunTest {
     @Test

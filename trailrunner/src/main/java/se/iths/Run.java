@@ -2,9 +2,6 @@ package se.iths;
 
 import java.time.LocalDate;
 
-// import java.util.ArrayList;
-// import java.util.List;
-
 public class Run {
     private double distanceInKm;
     private int hours;
@@ -60,10 +57,4 @@ public class Run {
 
         return kilometerTimeString;
     }
-
-    // public List<Object> getRunDataInput() {
-    //     List<Object> runDataList = new ArrayList<>();
-
-    //     return runDataList;
-    // }
 }

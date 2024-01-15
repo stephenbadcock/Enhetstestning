@@ -1,7 +1,5 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 trailrunner,se.iths,User,0,39,0,0,0,11,0,6,0,6
 trailrunner,se.iths,Run,0,102,0,0,0,22,0,8,0,8
-trailrunner,se.iths,RunLibrary,0,282,0,6,0,40,0,11,0,8
-trailrunner,se.iths,DatabaseAPI,19,0,0,0,5,0,5,0,5,0
-trailrunner,se.iths,TrailRunner,16,0,0,0,5,0,2,0,2,0
-trailrunner,se.iths,MainMenu,44,174,3,2,16,61,5,14,2,13
+trailrunner,se.iths,RunLibrary,0,245,0,6,0,32,0,9,0,6
+trailrunner,se.iths,MainMenu,0,195,0,6,0,56,0,13,0,10

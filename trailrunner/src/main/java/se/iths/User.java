@@ -1,6 +1,4 @@
 package se.iths;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class User {
     private double height;
@@ -30,8 +28,4 @@ public class User {
 
         return userBMIWithOneDecimal;
     }
-
-    //   if (date == null || date.isEmpty()) {
-    //      date = LocalDate.now().format(DateTimeFormatter.ISO_DATE);
-    //   }
 }
